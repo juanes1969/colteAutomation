@@ -3,13 +3,13 @@ Feature: Auth post
   Background:
     * def config = karate.call('classpath:karate-config.js')
     * def urlBase = config.baseUrl
-    * def apiKey = config.xApiKey
+    * def apiKey = config.xApiKeyAuth
     * def authToken = read('../data/auth.json')
     * configure ssl = true
 
-  Scenario: Obtener Token
+  Scenario: Get auth Token
     Given url urlBase + 'auth'
-    And header x-api-key = 'f6fc4c72-d79a-4429-92f1-39f6753602c6'
+    And header x-api-key = apiKey
     And request authToken
     When method POST
     Then status 200
