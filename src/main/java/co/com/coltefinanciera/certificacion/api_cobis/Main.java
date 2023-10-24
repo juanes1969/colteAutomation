@@ -1,4 +1,4 @@
-package org.example;
+package co.com.coltefinanciera.certificacion.api_cobis;
 
 public class Main {
     public static void main(String[] args) {
