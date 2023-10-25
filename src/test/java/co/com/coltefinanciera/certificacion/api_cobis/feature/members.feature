@@ -35,3 +35,15 @@ Feature: Members get post update delete
     Examples:
       | read('../csv/customer.csv') |
 
+  @create-members
+  Scenario Outline: post members
+    Given url karate.get('baseUrl') + "customers"
+    And header Authorization = 'Bearer ' + tokenId
+    And header x-api-key = apiKey
+    And request createUser
+    When method POST
+    Then status 200
+    Examples:
+      | read('../csv/customer.csv') |
+
+
