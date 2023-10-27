@@ -15,4 +15,4 @@ Feature: Auth post
     Then status 200
     * def token = response.token
     * print 'Token:', token
-    * karate.call('members.feature@create-members', { tokenId: token })
+    * karate.call('members.feature@create-client-account', { tokenId: token })
