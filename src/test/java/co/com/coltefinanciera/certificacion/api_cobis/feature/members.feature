@@ -29,8 +29,8 @@ Feature: Members get post update delete
     And request createUser
     When method POST
     Then status 200
-    * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
-    * print resposeInitial.response 
+    * def resposeInitial = karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
+    * print resposeInitial.response
 
     Examples:
       | read('../csv/customer.csv') |
