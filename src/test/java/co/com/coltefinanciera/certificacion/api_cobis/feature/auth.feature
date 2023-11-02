@@ -3,6 +3,7 @@ Feature: Auth post
   Background:
     * def config = karate.call('classpath:karate-config.js')
     * def urlBase = config.baseUrl
+    * def accountUrl = config.urlAccount
     * def apiKey = config.xApiKeyAuth
     * def authToken = read('../data/auth.json')
     * configure ssl = true
