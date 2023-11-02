@@ -49,8 +49,6 @@
     "ciudadCorrespondencia": "#(ciudadCorrespondencia)",
     "direccionCorrespondencia": "#(direccionCorrespondencia)",
     "originador": "#(originador)",
-    "fuente": "#(fuente)",
-    "codigoCobis":"#(codigoCobis)"
-
+    "fuente": "#(fuente)"
   }
 }
