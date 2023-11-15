@@ -2,8 +2,8 @@ Feature: Members get post update delete
 
   Background:
     * def config = karate.call('classpath:karate-config.js')
-    * def createUser = read('../data/CreateUser.json')
-    * def createUserAlly = read('../data/userAlly.json')
+    * def createUser = read('../../data/customerAlly/CreateUser.json')
+    * def createUserAlly = read('../../data/customerAlly/userAlly.json')
     * def urlBase = config.baseUrl
     * def accountUrl = config.urlAccount
     * def apiKey = config.xApiKey
@@ -11,29 +11,32 @@ Feature: Members get post update delete
     * def bodyEncrypt = config.bodyEncrypt
     * configure ssl = true
 
-  @create-members
-  Scenario Outline: Create client prospect
-    Given url urlBase + "customers"
+  @create-client-juridic
+  Scenario Outline: Create juridic client
+    * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
+    * print resposeInitial
+    * print resposeInitial.response
+    Given url accountUrl + "accounts"
     And header Authorization = 'Bearer ' + tokenId
     And header x-api-key = apiKey
-    And request createUser
-    When method POST
+    And request resposeInitial.response
+    When method PUT
     Then status 200
     Examples:
-      | read('../csv/customer.csv') |
+      | read('../../csv/juridicClient.csv') |
 
   @create
-  Scenario Outline: Create juridic prospect
+  Scenario Outline: Create natural prospect
     Given url urlBase + "customers"
     And header Authorization = 'Bearer ' + tokenId
     And header x-api-key = apiKey
-    And request createUser
+    And request createUserAlly
     When method POST
     Then status 200
     Examples:
-      | read('../csv/otherClient.csv') |
+      | read('../../csv/customerAlly/otherClient.csv') |
 
-  @create-client-account
+  @create-client-natural
   Scenario Outline: create natural client
    # * karate.call('members.feature@create-members', { tokenId: token })
     * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
@@ -47,22 +50,19 @@ Feature: Members get post update delete
     Then status 200
 
     Examples:
-      | read('../csv/encrypted.csv') |
+      | read('../../csv/customerAlly/otherClient.csv') |
 
 
-  @create-juridic-account
-  Scenario Outline: create natural juridic
-    * karate.call('members.feature@create', { tokenId: token })
-    * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
-    Given url accountUrl + "accounts"
+  @create-propect-juridic
+  Scenario Outline: Create juridic prospect
+    Given url urlBase + "customers"
     And header Authorization = 'Bearer ' + tokenId
     And header x-api-key = apiKey
-    And request resposeInitial
-    When method PUT
+    And request createUserAlly
+    When method POST
     Then status 200
-
     Examples:
-      | read('../csv/encrypted.csv') |
+      | read('../../csv/customerAlly/juridicClient.csv') |
 
 
   @create-account
