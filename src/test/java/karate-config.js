@@ -4,6 +4,7 @@ function fn() {
 
     var config = {
         baseUrl:"https://appqadocker.coltefinanciera.com.co:7000/customer-api/v3/",
+        urlAccount:"https://appqadocker.coltefinanciera.com.co:7000/account/v2/",
         xApiKey:"a1340d9c-62a3-4636-ab62-015bc770b0a8",
         xApiKeyAuth:"f6fc4c72-d79a-4429-92f1-39f6753602c6",
         secretKey: "C0lt3f1n4nci3r4_S3cr3t_P4ssw0rd1",
