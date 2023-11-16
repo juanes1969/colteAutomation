@@ -50,5 +50,9 @@
     "direccionCorrespondencia": "#(direccionCorrespondencia)",
     "originador": "#(originador)",
     "fuente": "#(fuente)"
+  },
+  "employmentInformation": {
+    "codigoCiiu": "#(codigoCiiu)",
+    "actividadEconomica": "#(actividadEconomica)"
   }
 }
