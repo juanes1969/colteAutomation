@@ -2,7 +2,7 @@ Feature: encript data
 
   Background:
     * def config = karate.call('classpath:karate-config.js')
-    * def bodyEncrypt = read('../data/encrypted.json')
+    * def bodyEncrypt = read('../../data/encrypt/encrypted.json')
     * def urlEncrypt = config.urlDecrypt
 
 
@@ -16,5 +16,5 @@ Feature: encript data
     Then status 200
 
     Examples:
-      | read('../csv/encrypted.csv') |
+      | read('../../csv/encryp/encrypted.csv') |
 

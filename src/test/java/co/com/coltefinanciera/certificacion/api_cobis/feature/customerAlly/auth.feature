@@ -40,7 +40,7 @@ Feature: Auth post
     * karate.call('members.feature@create-client-juridic', { tokenId: token })
 
 
-  Scenario: create natural client
+  Scenario: create natural client and account
     Given url urlBase + 'auth'
     And header x-api-key = apiKey
     And request authToken
@@ -48,4 +48,5 @@ Feature: Auth post
     Then status 200
     * def token = response.token
     * print 'Token:', token
+   # * karate.call('members.feature@create', { tokenId: token })
     * karate.call('members.feature@create-client-natural', { tokenId: token })

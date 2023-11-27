@@ -37,7 +37,7 @@ Feature: Members get post update delete
       | read('../../csv/customerAlly/otherClient.csv') |
 
   @create-client-natural
-  Scenario Outline: create natural client
+  Scenario: create natural client
    # * karate.call('members.feature@create-members', { tokenId: token })
     * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
     * print resposeInitial
@@ -49,8 +49,7 @@ Feature: Members get post update delete
     When method PUT
     Then status 200
 
-    Examples:
-      | read('../../csv/customerAlly/otherClient.csv') |
+
 
 
   @create-propect-juridic
