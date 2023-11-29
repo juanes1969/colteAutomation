@@ -36,21 +36,30 @@ Feature: Members get post update delete
     Examples:
       | read('../../csv/customerAlly/otherClient.csv') |
 
-  @create-client-natural
-  Scenario: create natural client
-   # * karate.call('members.feature@create-members', { tokenId: token })
-    * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
-    * print resposeInitial
-    * print resposeInitial.response
+  @create-account-natural-person
+  Scenario: create account natural person
     Given url accountUrl + "accounts"
     And header Authorization = 'Bearer ' + tokenId
     And header x-api-key = apiKey
-    And request resposeInitial.response
+    And request encryptedToken
     When method PUT
     Then status 200
 
 
+  @create-client-natural
+  Scenario: create natural client
+    * def encryptedDataList = read('../../csv/encryp/encrypted.csv')
 
+    * def stepsToRepeat =
+    """
+      function(index, item) {
+        karate.log('Executing iteration ' + item + ', Encrypted Data: ' + index);
+        var currentEncryptedToken = karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId, data: index });
+        karate.log('Encrypted Token: ' + currentEncryptedToken);
+        karate.call('members.feature@create-account-natural-person', { encryptedToken: currentEncryptedToken.response });
+      }
+    """
+    * karate.forEach(encryptedDataList, stepsToRepeat)
 
   @create-propect-juridic
   Scenario Outline: Create juridic prospect
@@ -66,9 +75,10 @@ Feature: Members get post update delete
 
   @create-account
   Scenario: post account
-    Given url karate.get('baseUrl') + "accounts"
+    * def resposeInitial =  karate.call('encript_data.feature@encrypt-data', { tokenId: tokenId })
+    Given url accountUrl + "accounts"
     And header Authorization = 'Bearer ' + tokenId
     And header x-api-key = apiKey
-    And request resposeInitial
-    When method POST
+    And request resposeInitial.response
+    When method PUT
     Then status 200

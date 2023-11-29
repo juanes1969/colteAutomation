@@ -7,14 +7,11 @@ Feature: encript data
 
 
   @encrypt-data
-  Scenario Outline: encrypt data
+  Scenario: encrypt data
     Given url urlEncrypt + "encrypt"
     And params { appName: 'co.com.coltefinanciera.masterdebit' }
     And header Authorization = 'Bearer ' + tokenId
-    And request bodyEncrypt
+    And request data
     When method POST
     Then status 200
-
-    Examples:
-      | read('../../csv/encryp/encrypted.csv') |
 
