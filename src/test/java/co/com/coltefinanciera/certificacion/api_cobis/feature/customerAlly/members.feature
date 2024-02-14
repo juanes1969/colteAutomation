@@ -4,6 +4,7 @@ Feature: Members get post update delete
     * def config = karate.call('classpath:karate-config.js')
     * def createUser = read('../../data/customerAlly/CreateUser.json')
     * def createUserAlly = read('../../data/customerAlly/userAlly.json')
+    * def createUserAllyWithPeps = read('../../data/customerAlly/createUserWithPep.json')
     * def urlBase = config.baseUrl
     * def accountUrl = config.urlAccount
     * def apiKey = config.xApiKey
@@ -35,6 +36,17 @@ Feature: Members get post update delete
     Then status 200
     Examples:
       | read('../../csv/customerAlly/otherClient.csv') |
+
+  @create-with-peps
+  Scenario Outline: Create natural prospect with peps
+    Given url urlBase + "customers"
+    And header Authorization = 'Bearer ' + tokenId
+    And header x-api-key = apiKey
+    And request createUserAllyWithPeps
+    When method POST
+    Then status 200
+    Examples:
+      | read('../../csv/customerAlly/customerWithPep.csv') |
 
   @create-account-natural-person
   Scenario: create account natural person
