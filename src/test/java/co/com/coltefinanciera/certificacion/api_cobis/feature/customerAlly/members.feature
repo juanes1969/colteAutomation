@@ -5,6 +5,7 @@ Feature: Members get post update delete
     * def createUser = read('../../data/customerAlly/CreateUser.json')
     * def createUserAlly = read('../../data/customerAlly/userAlly.json')
     * def createUserAllyWithPeps = read('../../data/customerAlly/createUserWithPep.json')
+    * def createUserAllyWithFinancialInformation = read('../../data/customerAlly/createCustomerWithFinancialInformation.json')
     * def urlBase = config.baseUrl
     * def accountUrl = config.urlAccount
     * def apiKey = config.xApiKey
@@ -47,6 +48,17 @@ Feature: Members get post update delete
     Then status 200
     Examples:
       | read('../../csv/customerAlly/customerWithPep.csv') |
+
+  @create-with-financial-information
+  Scenario Outline: create with financial information
+    Given url urlBase + "customers"
+    And header Authorization = 'Bearer ' + tokenId
+    And header x-api-key = apiKey
+    And request createUserAllyWithFinancialInformation
+    When method POST
+    Then status 200
+    Examples:
+      | read('../../csv/customerAlly/customerWithFinancialInformation.csv') |
 
   @create-account-natural-person
   Scenario: create account natural person

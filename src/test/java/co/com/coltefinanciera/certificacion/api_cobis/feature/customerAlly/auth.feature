@@ -29,6 +29,16 @@ Feature: Auth post
    # * karate.call('members.feature@create-with-peps', { tokenId: token })
     * karate.call('members.feature@create-client-natural', { tokenId: token })
 
+  Scenario: Create prospect natural with financial information
+    Given url urlBase + 'auth'
+    And header x-api-key = apiKey
+    And request authToken
+    When method POST
+    Then status 200
+    * def token = response.token
+    * print 'Token:', token
+    * karate.call('members.feature@create-with-financial-information', { tokenId: token })
+
   Scenario: Create juridic prospect
     Given url urlBase + 'auth'
     And header x-api-key = apiKey
