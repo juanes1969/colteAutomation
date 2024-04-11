@@ -38,6 +38,8 @@ Feature: Auth post
     * def token = response.token
     * print 'Token:', token
     * karate.call('members.feature@create-with-financial-information', { tokenId: token })
+    #* karate.call('members.feature@create-client-natural', { tokenId: token })
+
 
   Scenario: Create juridic prospect
     Given url urlBase + 'auth'

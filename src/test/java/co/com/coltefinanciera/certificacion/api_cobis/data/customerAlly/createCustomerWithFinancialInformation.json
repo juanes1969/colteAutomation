@@ -58,10 +58,7 @@
     "totalActivos": "#(totalActivos)",
     "totalPasivos": "#(totalPasivos)",
     "salario": "#(salario)",
-    "otrosIngresos": "#(otrosIngresos)",
-    "gastosFamiliares": "#(gastosFamiliares)",
-    "arriendo": "#(arriendo)",
-    "deducciones": "#(deducciones)"
+    "otrosIngresos": "#(otrosIngresos)"
   },
   "employmentInformation": {
     "codigoCiiu": "#(codigoCiiu)",
