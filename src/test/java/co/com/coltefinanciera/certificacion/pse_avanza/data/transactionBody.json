@@ -1,0 +1,10 @@
+{
+  "codTransaccion": "#(codTransaction)",
+  "codEntidadReceptora": "#(codReceptor)",
+  "codEntidadOriginadora": "#(codOrigen)",
+  "nombreOriginador": "#(name)",
+  "cuentaOrigenOriginador": "#(account)",
+  "idOriginador": "#(idOrigen)",
+  "fechaTransaccion": "#(dateOrigen)",
+  "monto": "#(amount)"
+}

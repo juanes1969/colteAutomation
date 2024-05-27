@@ -1,0 +1,27 @@
+{
+  "tipoRegistro":"#(typeRegister)",
+  "codTransaccion":"#(codTransaction)",
+  "codEntidadReceptora":"#(codReceptor)",
+  "codEntidadOriginadora":"#(codOriginator)",
+  "nombreOriginador":"#(nameOriginator)",
+  "cuentaOrigenOriginador":"#(accountOriginator)",
+  "idOriginador":"#(idOriginator)",
+  "descTransaccion":"#(descTransaction)",
+  "fechaTransaccion":"#(date)",
+  "cuentaReceptor":"#(accountReceptor)",
+  "monto":"#(amount)",
+  "nombreReceptor":"#(nameReceptor)",
+  "idReceptor":"#(idReceptor)",
+  "discrecReceptor":"#(discReceptor)",
+  "infoPago":"#(infoPayment)",
+  "idTransaccion":"#(idTransaction)",
+  "idLote":"#(idLot)",
+  "reversion":"#(reversion)",
+  "descLote":"#(descLot)",
+  "rtaACH":"#(rtaACH)",
+  "rtaLocal":"#(rtaLocal)",
+  "recurrente":"#(recurrent)",
+  "idOtp":"#(idOtp)",
+  "numeroOtp": "#(numeroOtp)"
+
+}

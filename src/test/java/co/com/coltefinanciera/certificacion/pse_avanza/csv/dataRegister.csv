@@ -1,0 +1,2 @@
+tipoRegistro,codTransaccion,codEntidadReceptora,codEntidadOriginadora,nombreOriginador,cuentaOrigenOriginador,idOriginador,descTransaccion,fechaTransaccion,cuentaReceptor,monto,nombreReceptor,idReceptor,discrecReceptor,infoPago,idTransaccion,idLote,reversion,descLote,rtaACH,rtaLocal,recurrente,idOtp,numeroOtp
+6,37,370,101,PSECOLTEFINANCIERA S.A.,1111,71728455,Tarjeta de cr..ditoCOLTEFINANCIERA S.A.,20240504,650020,10000.00,PSE71728455,71728455,V,Tarjeta de cr..ditoCOLTEFINANCIERA S.A.,537067,619559984,0,Pagos PSE,,,0,,

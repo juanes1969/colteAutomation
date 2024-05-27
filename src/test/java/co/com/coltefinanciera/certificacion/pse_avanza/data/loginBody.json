@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "app": "CORE_BANCARIO",
+    "type": "LoginRequest"
+  },
+  "data": [
+    {
+      "username": "CORE_BANCARIO",
+      "password": "CORE_BANCARIO"
+    }
+  ]
+}
